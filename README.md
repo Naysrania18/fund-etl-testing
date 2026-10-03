@@ -2,10 +2,7 @@
 
 A small, self-contained project that demonstrates how to **test an ETL
 pipeline for financial data**, using a simplified private equity fund
-transactions dataset. Built as a learning/portfolio project while
-preparing for an SDET interview.
-
-## What is ETL, and why test it?
+transactions dataset. 
 
 **ETL** stands for **Extract, Transform, Load**:
 
