@@ -1,0 +1,38 @@
+name: ETL Tests
+
+# Run on every push and on every pull request, to any branch.
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate fresh sample data
+        run: python data/generate_data.py
+
+      - name: Run the ETL pipeline
+        run: python -m etl.pipeline
+
+      - name: Run pytest with HTML report
+        run: pytest --html=report.html --self-contained-html
+
+      - name: Upload HTML test report
+        if: always() # upload even if tests failed, so we can see why
+        uses: actions/upload-artifact@v4
+        with:
+          name: pytest-html-report
+          path: report.html
