@@ -103,13 +103,4 @@ runs the full pytest suite with an HTML report, and uploads that
 report as a downloadable build artifact — so a reviewer can see full
 test results without running anything locally.
 
-## How I used Claude Code
 
-I used Claude Code to scaffold this entire project — the sample data
-generator, the extract/transform/load modules, the pytest suite, the
-CI workflow, and this README — from a single description of what I
-wanted to demonstrate for an SDET interview. I reviewed every file,
-ran the pipeline and the full test suite myself, and read through the
-transformation and rejection logic to make sure I actually understood
-*why* each test exists (not just that it passes) before treating this
-as something I could explain and defend in an interview.
